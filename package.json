@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "engines": {
+    "node": "9.11.2",
+    "npm": "6.5.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
