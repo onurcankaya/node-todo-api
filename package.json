@@ -7,8 +7,8 @@
     "start": "nodemon server/server.js"
   },
   "engines": {
-    "node": "9.11.2",
-    "npm": "6.5.0"
+    "node": "9.x",
+    "yarn": ">=1.12"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
