@@ -100,6 +100,27 @@ app.patch('/todos/:id', (req, res) => {
   })
 })
 
+// USERS
+app.post('/users', (req, res) => {
+  const body = _.pick(req.body, ['email', 'password'])
+
+  // const newUser = new User({
+  //   email: body.email,
+  //   password: body.password
+  // })
+
+  const user = new User(body)
+
+  user.save().then(() => {
+    return user.generateAuthToken()
+  }).then((token) => {
+    res.header('x-auth', token).send(user)
+  }).catch((e) => {
+    res.status(400).send(e)
+    console.log(e)
+  })
+})
+
 const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`server is up and running on port ${PORT}`)
